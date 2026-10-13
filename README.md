@@ -34,17 +34,7 @@ Y1 = A − T
 
 ## 2. UVM 검증 구조
 
-```mermaid
-flowchart LR
-    SEQ[Sequence] --> SQR[Sequencer]
-    SQR --> DRV[Driver]
-    DRV -->|drv_cb로 입력 구동| IF[butterfly_if]
-    IF -->|A / B / W / valid / reset| DUT[Butterfly DUT]
-    DUT -->|출력 및 내부 S0 / S1 / S2 신호| IF
-    IF -->|pre_cb / post_cb 관측| MON[Monitor]
-    MON -->|analysis_port: 관측 객체| SB[Scoreboard]
-    SB -->|verified_port: 입력별 검사 결과| COV[Coverage]
-```
+
 
 `Test`는 테스트 실행과 종료를 관리합니다. `Env`는 Agent, Scoreboard, Coverage를 생성·연결하고, Agent는 Sequencer, Driver, Monitor를 포함합니다. `tb_top`은 DUT와 interface를 인스턴스화하고, 내부 신호를 계층 참조로 interface에 연결합니다.
 
