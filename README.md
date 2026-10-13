@@ -125,7 +125,7 @@ Coverage는 **입력별 실제 검사 결과를 누적**합니다. 전체 테스
 | `cp_check` | storage, movement, valid, continuous | 각 항목 1,024 hit |
 | `id_x_check` | 입력 ID × 검증 항목, 총 4,096개 bin | 모든 조합 충족 |
 
-각 입력에 대해 네 검증 항목을 각각 sample하므로 `cp_id`의 hit count는 4입니다. `cp_check`는 항목별 성공 횟수를, `id_x_check`는 어떤 입력의 어떤 검사가 충족됐는지를 보여줍니다. 표시되는 총 5,124개 bin은 **1,024 + 4 + 4,096**의 합입니다.
+단계별 저장(`storage`), 단계 이동의 정상 여부(`movement`), Valid 정렬(`valid`), 연속 처리 정합성(`continuous`)의 네 가지 항목을 테스트하고, 각 항목의 검증 결과를 `cp_check` coverage에서 확인하였습니다.
 
 ![Verdi functional coverage 결과: 네 항목 각각 1024 hit와 cross 4096개 bin 충족](verified-coverage.png)
 
@@ -223,3 +223,4 @@ verdi -cov -covdir butterfly_clean.vdb &
 ```
 
 Verdi의 **Groups**에서 `cp_check`와 `id_x_check`를 선택해 항목별 횟수와 입력별 검증 결과를 확인합니다. 한 번의 실행 결과를 확인할 때는 기존 실행이 섞이지 않은 새 DB를 사용하세요. 새 DB 이름을 사용할 경우 컴파일·실행·Verdi 명령의 `-cm_dir` 또는 `-covdir` 경로를 동일하게 변경합니다.
+
