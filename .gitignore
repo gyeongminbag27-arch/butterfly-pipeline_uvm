@@ -1,0 +1,12 @@
+simv*
+csrc/
+*.daidir/
+*.vdb/
+*.log
+*.key
+*.vpd
+*.fsdb
+DVEfiles/
+verdiLog/
+novas.*
+urgReport/
